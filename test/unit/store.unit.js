@@ -14,7 +14,14 @@ describe.only('store unit', function () {
   });
 
   it('should add two items', () => {
-    throw new Error('test fails because you need to implement it!');
+    // throw new Error('test fails because you need to implement it!');
+
+    const store2 = new Store();
+    store2.insert({id: 1, completed: false, title: 'Clean room'});
+    store2.insert({id: 2, completed: true, title: 'destroy room'});
+
+    expect(store2.find({id: 1})).to.eql([{id: 1, completed: false, title: 'Clean room'}]);
+    expect(store2.find({id: 2})).to.eql([{id: 1, completed: true, title: 'destroy room'}]);
   });
 
   it('should remove an item', () => {
