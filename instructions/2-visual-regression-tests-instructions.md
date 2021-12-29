@@ -34,7 +34,7 @@ You're good to go to run your Visual Regression Tests.
 1. Run the tests (simplest would be to use `npx cypress open`
    and choosing `visual-todo-actions.e2e.js`).
 1. Check that they are OK (at the [Applitools Eyes Dashboard](https://eyes.applitools.com)).
-   * Don't forget to run `npm start &` in the background!
+   - Don't forget to run `npm start &` in the background!
 1. You can run them again to verify that they passed.
 
 ## Change the CSS
@@ -50,17 +50,21 @@ You're good to go to run your Visual Regression Tests.
 1. Add the following to the `cy.eyesOpen` options, and run the test again:
 
 ```js
-      browser: [
-        {width: 1024, height: 768, name: 'chrome'},
-        {width: 1280, height: 1024, name: 'chrome'},
-        {width: 800, height: 600, name: 'firefox'},
-        {deviceName: 'iPhone X', screenOrientation: 'landscape'},
-        {deviceName: 'iPhone X', screenOrientation: 'portrait'},
-        {deviceName: 'Galaxy S5', screenOrientation: 'portrait'}
-      ]
+browser: [
+  {width: 1024, height: 768, name: 'chrome'},
+  {width: 1280, height: 1024, name: 'chrome'},
+  {width: 800, height: 600, name: 'firefox'},
+  {deviceName: 'iPhone X', screenOrientation: 'landscape'},
+  {deviceName: 'iPhone X', screenOrientation: 'portrait'},
+  {deviceName: 'Galaxy S5', screenOrientation: 'portrait'},
+];
 ```
 
 ## Done
 
 You're done. Wait for the next part, which will be
 [here](./3-it-tests-instructions.md).
+
+# I ran the following cmd line to get this working:
+
+- `APPLITOOLS_API_KEY=squmXrzMihimYk1117PRSPT8Ion6QJgufRctDK8Sm6FX0110 npm run cypress:open`

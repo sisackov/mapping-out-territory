@@ -28,5 +28,34 @@ describe('todo actions (visual)', () => {
      * 1. The footer component (with the filter buttons and statuses)
      * 1. The todo list
      */
+
+    // Empty todo list
+    cy.get('.new-todo').type('Clean room');
+
+    cy.eyesCheckWindow('No todos');
+
+    // One todo list
+    cy.get('.new-todo').type('{enter}');
+
+    cy.eyesCheckWindow('one todo added');
+
+    // Two todo list
+    cy.get('.new-todo').type('Write frontend tests{enter}');
+
+    cy.eyesCheckWindow('two todos added');
+
+    // Toggle complete
+    cy.get('.todo-list li:nth-child(1) .toggle').click();
+
+    cy.eyesCheckWindow('todo completed');
+
+    // Filter completed
+    cy.contains('Completed').click();
+
+    cy.eyesCheckWindow('completed filter');
+
+    // Component tests
+    cy.eyesCheckWindow({tag: 'Footer (filter completed)', target: 'selector', selector: '.footer'});
+    cy.eyesCheckWindow({tag: 'Todo list (toggle completed)', target: 'selector', selector: '.todo-list'});
   });
 });
